@@ -6,7 +6,7 @@
 
 nextflow.enable.dsl=2
 
-process mergeText {
+process mergeTxt {
   /*
   Merge multiple text files into single text file
 

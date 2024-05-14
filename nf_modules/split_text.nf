@@ -6,7 +6,7 @@
 
 nextflow.enable.dsl=2
 
-process splitText {
+process splitTxt {
   /*
   Split text file into multiple text files
 

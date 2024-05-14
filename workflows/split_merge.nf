@@ -15,8 +15,8 @@ params.output_prefix = ""
 params.help = false
 
 // module imports
-include { splitText } from '../nf_modules/split_text.nf'
-include { mergeText } from '../nf_modules/merge_text.nf'
+include { splitTxt } from '../nf_modules/split_text.nf'
+include { mergeTxt } from '../nf_modules/merge_text.nf'
 
 if (params.help) {
   log.info """
@@ -37,8 +37,7 @@ workflow {
     input_text_channel = Channel
                         .fromPath(params.input_file)
                         .splitText() { it.strip() }
-    splitText(input_text_channel)
-    mergeText(splitText.out.collect())
-    
+    splitTxt(input_text_channel)
+    mergeTxt(splitTxt.out.collect())
     
 }
