@@ -20,25 +20,24 @@
 nextflow.enable.dsl=2
 
 process splitTxt {
-  /*
-  Split text file into multiple text files
+    /*
+    Split text file into multiple text files
 
-  Returns
-  -------
-  Tuple of split text files
-  */
-  cpus params.cpus
-  // label "default"
+    Returns
+    -------
+    Tuple of split text files
+    */
+    cpus params.cpus
+    // label "default"
 
-  input:
-    val name
+    input:
+        val name
 
-  output:
-    path("*.txt")
+    output:
+        path("*.txt")
 
-  script:
-  """
-  echo "EMBL ${name}" > name_${name}.txt
-  """
-
+    script:
+    """
+    echo "EMBL ${name}" > name_${name}.txt
+    """
 }

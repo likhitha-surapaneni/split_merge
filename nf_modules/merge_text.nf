@@ -21,26 +21,26 @@
 nextflow.enable.dsl=2
 
 process mergeTxt {
-  /*
-  Merge multiple text files into single text file
+    /*
+    Merge multiple text files into single text file
 
-  Returns
-  -------
-  Merge text file
-  */
-  cpus params.cpus
-  // label "default"
-  publishDir params.output_dir
+    Returns
+    -------
+    Merge text file
+    */
+    cpus params.cpus
+    // label "default"
+    publishDir params.output_dir
 
-  input:
-    path(split_text_files)
+    input:
+      path(split_text_files)
 
-  output:
-    path("*merged.txt")
+    output:
+      path("*merged.txt")
 
-  script:
-  """
-  cat ${split_text_files} > name_merged.txt
-  """
+    script:
+    """
+    cat ${split_text_files} > name_merged.txt
+    """
 
 }

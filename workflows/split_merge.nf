@@ -35,25 +35,25 @@ include { splitTxt } from '../nf_modules/split_text.nf'
 include { mergeTxt } from '../nf_modules/merge_text.nf'
 
 if (params.help) {
-  log.info """
-    Pipeline to run spli-merge text
-    -------------------
-    Usage:
-    nextflow run workflows/split_merge.nf --input_file <path-to-txt-file> 
+    log.info """
+        Pipeline to run spli-merge text
+        -------------------
+        Usage:
+        nextflow run workflows/split_merge.nf --input_file <path-to-txt-file> 
 
-    Options:
-    --input_file TXT                 Text file
+        Options:
+        --input_file TXT                 Text file
 
-    """
-  exit 1
+        """
+    exit 1
 }
 
 workflow {
-  main:
-    input_text_channel = Channel
-                        .fromPath(params.input_file)
-                        .splitText() { it.strip() }
-    splitTxt(input_text_channel)
-    mergeTxt(splitTxt.out.collect())
-    
+    main:
+      input_text_channel = Channel
+                          .fromPath(params.input_file)
+                          .splitText() { it.strip() }
+      splitTxt(input_text_channel)
+      mergeTxt(splitTxt.out.collect())
+      
 }
