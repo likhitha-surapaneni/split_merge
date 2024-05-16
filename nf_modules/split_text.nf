@@ -28,6 +28,7 @@ process splitTxt {
     Tuple of split text files
     */
     cpus params.cpus
+    tag "$name"
     // label "default"
 
     input:
