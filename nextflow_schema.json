@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://github.com/likhitha-surapaneni/split_merge/blob/main/nextflow.config",
+    "title": "Split merge pipeline parameters",
+    "description": "Define the parameters to run the split_merge pipeline",
+    "$defs": {
+        "input_output_options": {
+            "title": "Input/output options",
+            "type": "object",
+            "fa_icon": "fas fa-terminal",
+            "description": "Define where the pipeline should find input data and save output data.",
+            "required": ["input_file"],
+            "properties": {
+                "input_file": {
+                    "type": "string",
+                    "format": "file-path",
+                    "mimetype": "text/csv",
+                    "description": "Path to file containing text to be split",
+                    "help_text": "You will need to create a design file with information about the samples in your experiment before running the pipeline. Use this parameter to specify its location. It has to be a comma-separated file with 3 columns, and a header row. See [usage docs](https://nf-co.re/testpipeline/usage#samplesheet-input).",
+                    "fa_icon": "fas fa-file-csv"
+                },
+                "output_dir": {
+                    "type": "string",
+                    "format": "directory-path",
+                    "description": "The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.",
+                    "fa_icon": "fas fa-folder-open"
+                }
+            }
+        }
+    }
+    
+}

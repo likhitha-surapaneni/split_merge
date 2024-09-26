@@ -17,8 +17,6 @@
  * Script to split a text file into multiple text files
 */
 
-nextflow.enable.dsl=2
-
 process splitTxt {
     /*
     Split text file into multiple text files
@@ -27,9 +25,9 @@ process splitTxt {
     -------
     Tuple of split text files
     */
-    cpus params.cpus
+
     tag "$name"
-    // label "default"
+    label "default"
 
     input:
         val name
