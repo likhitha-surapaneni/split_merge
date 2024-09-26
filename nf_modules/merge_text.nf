@@ -18,8 +18,6 @@
  * Script to merge multiple text files into single text file
 */
 
-nextflow.enable.dsl=2
-
 process mergeTxt {
     /*
     Merge multiple text files into single text file
@@ -28,8 +26,8 @@ process mergeTxt {
     -------
     Merge text file
     */
-    cpus params.cpus
-    // label "default"
+    tag "merge"
+    label "default"
     publishDir params.output_dir
 
     input:
